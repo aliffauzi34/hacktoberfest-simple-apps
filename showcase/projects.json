@@ -1,0 +1,5 @@
+cat > showcase/projects.json << 'EOF'
+{
+  "projects": []
+}
+EOF
