@@ -7,19 +7,33 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  issues: write
 
 jobs:
   add-label:
     runs-on: ubuntu-latest
     steps:
-      - name: Add Hacktoberfest Label
+      - name: Add / ensure label
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              labels: ['hacktoberfest-accepted']
-            })
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pr = context.payload.pull_request?.number;
+            if (!pr) { core.setFailed('PR number not found'); return; }
+
+            const labelName = 'hacktoberfest-accepted';
+            // ensure label exists
+            try {
+              await github.rest.issues.getLabel({ owner, repo, name: labelName });
+            } catch {
+              await github.rest.issues.createLabel({
+                owner, repo, name: labelName, color: 'FF8C00',
+                description: 'Marks a Pull Request as valid for Hacktoberfest'
+              });
+            }
+            // add label
+            await github.rest.issues.addLabels({
+              owner, repo, issue_number: pr, labels: [labelName]
+            });
