@@ -1,4 +1,3 @@
-cat > CONTRIBUTING.md << 'EOF'
 # 🤝 Contributing Guidelines
 
 Thank you for your interest in contributing! 🎉  
@@ -19,9 +18,6 @@ This repo welcomes **beginner-friendly PRs** during Hacktoberfest and beyond.
 Example:
 feat(js): add random color generator
 
-markdown
-Copy code
-
 ## ⚙️ Labels
 - hacktoberfest
 - hacktoberfest-accepted
@@ -29,11 +25,7 @@ Copy code
 - good first issue
 
 Let's build and learn together 🚀
-EOF
-🧩 LICENSE
-bash
-Copy code
-cat > LICENSE << 'EOF'
+
 MIT License
 
 Copyright (c) 2025 Alif
@@ -51,4 +43,3 @@ copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-EOF

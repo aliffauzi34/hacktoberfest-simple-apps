@@ -1,4 +1,3 @@
-cat > .github/ISSUE_TEMPLATE/new_project.md << 'EOF'
 ---
 name: 💡 New Project Suggestion
 about: Suggest a new simple app for Hacktoberfest
@@ -18,4 +17,3 @@ Which language? (PHP / Python / JS / etc)
 
 ### 📄 Example Output
 Describe expected input/output.
-EOF
